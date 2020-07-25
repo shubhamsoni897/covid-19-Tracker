@@ -1,6 +1,6 @@
 # covid-19-Tracker
-Fork the files in the same folder
-Download node.js and install it
+Fork the files in the same folder.
+Download node.js and install it.
 Then,you have to install some node packages given below :
 1. npm install expess
 2. npm install body-parser
