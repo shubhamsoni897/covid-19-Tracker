@@ -207,7 +207,8 @@ app.get("/",function(req,res){
 })
 app.post("/",function(req,res){ 
     const cName = (req.body.country).toUpperCase();
-    if(countryList.includes(cName)){const url = "https://coronavirus-19-api.herokuapp.com/countries/" + cName ;
+    const wName = cName.replace(/^\s+|\s+$/g, "").replace(/\s+/g, " ");
+    if(countryList.includes(cName)){const url = "https://coronavirus-19-api.herokuapp.com/countries/" + wName ;
 
     https.get(url,function(response){
         response.on("data",function(data){
@@ -221,7 +222,7 @@ app.post("/",function(req,res){
         });
     })
 }
-else if(cName === "USA" || cName === "UNITED STATES OF AMERICA" || cName === "US" || cName === "AMERICA"){
+else if(wName === "USA" || wName === "UNITED STATES OF AMERICA" || wName === "US" || wName === "AMERICA"){
         const url = "https://coronavirus-19-api.herokuapp.com/countries/USA"  ;
 
         https.get(url,function(response){
@@ -236,7 +237,7 @@ else if(cName === "USA" || cName === "UNITED STATES OF AMERICA" || cName === "US
             });
         })
     }
-else if(cName === "UNITED ARAB EMIRATES" || cName === "UAE") {
+else if(wName === "UNITED ARAB EMIRATES" || wName === "UAE") {
     const url = "https://coronavirus-19-api.herokuapp.com/countries/UAE" ;
 
     https.get(url,function(response){
@@ -251,7 +252,7 @@ else if(cName === "UNITED ARAB EMIRATES" || cName === "UAE") {
         });
     })
 }
-else if(cName === "UNITED KINGDOM" || cName === "UK" || cName === "BRITAIN" || cName === "UNITED KINGDOM OF GREAT BRITAIN" || cName === "GREAT BRITAIN"){
+else if(wName === "UNITED KINGDOM" || wName === "UK" || wName === "BRITAIN" || wName === "UNITED KINGDOM OF GREAT BRITAIN" || wName === "GREAT BRITAIN"){
     const url = "https://coronavirus-19-api.herokuapp.com/countries/UK"  ;
 
     https.get(url,function(response){
